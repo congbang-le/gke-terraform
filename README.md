@@ -7,6 +7,7 @@ This project stimulates a GKE infrastructure created by Terraform/Terragrunt wit
 ### Prerequisite
 Authenticate with Google account
 ```
+gcloud auth login
 gcloud auth application-default login
 ```
 ### Backend provisioning
@@ -27,7 +28,8 @@ terragrunt run-all apply
 ### Access to cluster and get cluster info
 ```
 cd live/uat
-gcloud container clusters get-credentials $(terraform output -raw kubernetes_cluster_name) --region $(terraform output -raw region)
+gcloud container clusters get-credentials <cluster_name> --region <region>
+kubectl cluster-info
 ```
 ### Clean up
 ```
